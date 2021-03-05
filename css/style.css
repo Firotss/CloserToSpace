@@ -1,0 +1,756 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	box-sizing: border-box;
+    
+}
+
+
+
+body{
+    background-image:url(../images/background.jpg);
+}
+
+/* весь контейнер поддерживает перспективу */
+.flip-container {
+ perspective: 1000;
+}
+ /* переверните сторону при проведении мышью */
+ .flip-container:hover .flipper, .flip-container.hover .flipper {
+ transform: rotateY(180deg);
+ }
+ 
+.flip-container, .front, .back {
+ width: 320px;
+ height: 480px;
+}
+ 
+/* здесь находится скорость перевертывания */
+.flipper {
+ transition: 0.6s;
+ transform-style: preserve-3d;
+ 
+ position: relative;
+}
+ 
+/* скройте обратную сторону во время переворота */
+.front, .back {
+ backface-visibility: hidden;
+ 
+ position: absolute;
+ top: 0;
+ left: -10px;
+}
+ 
+/* лицевая сторона размещена над обратной */
+.front {
+ z-index: 2;
+}
+ 
+/* обратная, изначально скрытая сторона */
+.back {
+ transform: rotateY(180deg);
+}
+
+.single-box
+{
+  user-select: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 300px;
+	height: 420px;
+	border-radius: 4px;
+	background-color: #fff;
+	text-align: center;
+	margin: 20px;
+	padding: 20px;
+	transition: .3s;
+}
+.single-box.front{
+  display: flex;
+}
+.logo{
+	float: left;
+	width: 230px;
+	height: auto;
+	display: flex;
+	align-items: center;
+	font-size: 24px;
+	color: #fff;
+}
+
+.navbar{
+	width: 100%;
+	overflow: hidden;
+	height: auto;
+	background: #ffffff;
+}
+.navbar input{
+  background-color: white;
+  color: black;
+  border: 3px solid black;
+  border-radius: 17px;
+  width: 130%;
+  padding: 3px;
+  float: right;
+  margin-left: 50px;
+  background-image: url("../images/lupa.png");   
+  background-repeat: no-repeat;
+  background-position: 4px;   
+  background-position-y: 2px;
+  background-size: 20px;
+  outline: none; 
+  font-size: 100%; 
+  padding-left: 28px;
+}
+
+.navbar input::placeholder{
+  color: rgba(0, 0, 0, 0.24);
+}
+.navbar_links {
+  user-select: none;
+	float: right;
+	padding: 0;
+	margin: 0;
+	width: 70%;
+	height: auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+
+.box{
+	display: flex;
+	flex-wrap: wrap;
+}
+/*... */
+
+.menu{
+	float: right;
+}
+.menu li{
+	float: left;
+	width: 120px;
+	height: auto;
+	line-height: 70px;
+	text-align: center;
+	list-style: none;
+}
+.menu li a{
+	color: #000;
+	text-decoration: none;
+	font-family: calibri;
+	display: block;
+}
+.menu li:hover{
+	background: #3F71EA;
+}
+.menu li a:hover{
+	color: #fff;
+}
+.menu a:hover{
+	color: #000;
+    text-decoration:underline;
+}
+
+
+h1
+{
+	position: absolute; /* or absolute */
+    top:15%;
+    left: 50%;
+  color: rgb(7, 6, 6);
+  transform: translate(-50%, -50%);
+}
+.box-area
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 300px);
+}
+
+.img-area
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  height: 200px;
+  margin-bottom: 10px;
+  padding: 20px;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+.like{
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  float:right
+}
+.pulse{
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  float:right;
+  background-image: url(../images/red-heart.png);
+  animation: pulse 0.7s ease-out;
+  transform: scale(0);
+  position: absolute;
+}
+@keyframes pulse{
+  to{
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+.header-text
+{
+  
+  user-select: none;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 48px;
+}
+.img-text
+{
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family:Poppins;
+  padding-top: 20px;
+}
+
+.img-text p
+{
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.single-box.back
+{
+  
+  background: rgba(43, 97, 198, 0.5); /* Цвет фона */
+  opacity: 1; /* Значение прозрачности */
+  color: #fff;
+}
+
+.second div{
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  border-top: 2px solid #56433D;
+  border-bottom: 2px solid #56433D;
+  border-right: 2px solid #56433D;
+  vertical-align: middle;
+}
+.table {
+  border-spacing: 0 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+.about-section {
+  padding: 1px;
+  text-align: center;
+  background-color: #eea663;
+  color: white;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+img {
+  width: 150%;
+  height: 100%;
+}
+.card{
+  box-shadow: 0 4px 8px o grba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
+}
+.likes{
+  color:grey;
+  font-size: 25px;
+  padding: 10px;
+}
+.card button{
+  border: none;
+  outline: 0;
+  padding: 5px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+.card button:hover{
+  opacity: 0.7;
+}
+header{
+  text-align: center;
+  padding-top: 100px;
+  margin-bottom: 190px;
+}
+header h1{
+  font: normal 32px/1.5 'Open Sans', sans-serif;
+  color: #3F71AE;
+  padding-bottom: 16px;
+}
+
+header h2{
+  color: #F05283;
+}
+
+header span{
+  color: #3F71EA;
+}
+footer{
+  position: bottom;
+  bottom: 0;
+}
+
+@media (max-height:800px){
+  footer { position: static; }
+  header { padding-top:40px; }
+}
+
+.footer-distributed{
+  background-color: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font: bold 16px sans-serif;
+  padding: 50px 50px 60px 50px;
+  margin-top: 80px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+  width: 30%;
+}
+
+.footer-distributed h3{
+  font: normal 36px 'Cookie', cursive;
+  margin: 0;
+}
+
+/* The company logo */
+
+.footer-distributed .footer-left img{
+  width: 30%;
+}
+
+.footer-distributed h3 span{
+  color:  #e0ac1c;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+  margin: 20px 0 12px;
+}
+
+.footer-distributed .footer-links a{
+  display:inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+  color:  #8f9296;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+  width: 35%;
+}
+
+
+.footer-distributed .footer-center i{
+  background-color:  #33383b;
+  color: #ffffff;
+  font-size: 25px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 42px;
+  margin: 10px 15px;
+  vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+  font-size: 17px;
+  line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+  display: inline-block;
+  color: #000;
+  vertical-align: middle;
+  margin:0;
+}
+
+.footer-distributed .footer-center p span{
+  display:block;
+  font-weight: normal;
+  font-size:14px;
+  line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+  color:  #558bff;
+  text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+  width: 30%;
+}
+
+.footer-distributed .footer-company-about{
+  line-height: 20px;
+  color:  #92999f;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.footer-right a:link{
+  color:  #768fff;
+}
+.footer-right a:hover{
+  color:  black;
+}
+.footer-distributed .footer-company-about span{
+  display: block;
+  color:  #000;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+  margin-top: 25px;
+}
+
+@media (max-width: 880px) {
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.footer-distributed .footer-center i{
+  margin-left: 0;
+}
+
+}
+.loginbox{
+  width: auto;
+  background: rgba(43, 97, 198, 0.5);
+  flex: 0 0 200px;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 20px;
+}
+.loginbox h2{
+    text-align: center;
+    line-height: 50px;
+    
+}
+.button-log{
+    text-align: center;
+}
+.messagebox{
+  width: auto;
+  background: #5D5C61;
+  align-items: stretch;
+  flex: 0 0 200px;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 70px 70px;
+  border-radius: 20px;
+  max-width: 600px;
+  min-width: 600px;
+}
+.avatar1{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 50px);
+  bottom: calc(70vh);
+}
+.avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  left: calc(50% - 50px);
+}
+
+.loginbox p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.loginbox input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.loginbox input[type="text"], input[type="password"], input[type="email"]
+{
+  background: transparent;
+  background: rgba(255, 255, 255, 0.219);
+  height: 40px;
+  width: 300px;
+  color: #fff;
+  font-size: 16px;   
+  
+}
+.loginbox input::placeholder{
+  color: rgba(255, 255, 255, 0.24);
+  
+}
+.loginbox input[type="submit"]
+{
+  border: none;
+  height: 40px;
+  background: #fff;
+  color: #000;
+  font-size: 18px;
+}
+
+.messagebox p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.messagebox input{
+  width: 100%;
+  margin-bottom: 20px;
+  
+}
+
+
+.messagebox input[type="submit"]:hover
+{
+  cursor: pointer;
+  background: black;
+  color: white;
+}
+.messagebox a{
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgray;
+}
+.loginbox input[type="submit"]:hover
+{
+  cursor: pointer;
+  background: black;
+  color: white;
+}
+.loginbox a{
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgray;
+}
+.second{
+  padding: 1px;
+}
+.table {
+  border-spacing: 0 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.table div{
+ flex: 1;
+}
+
+.second div{
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  border-top: 2px solid #56433D;
+  border-bottom: 2px solid #56433D;
+  border-right: 2px solid #56433D;
+  vertical-align: middle;
+}
+
+.button{
+  background-color: #f0f0f0;
+  border: 1px solid black;
+  padding: 5px 20px; 
+  color: black;
+}
+.button:hover{
+  background-color: #3498db;
+  color:  #f0f0f0;
+}
+.first,.second{
+  display: flex;
+}
+
+.first {
+padding: 10px 0;
+background: #56433D;
+color: #F9C941;
+font-size: 0.9em;
+text-align: center;
+}
+
+.cell-img {
+  width: 100px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  background: rgba(72,72,72,.4);
+  padding: 35px;
+  border-radius: 7px;
+}	
+.button1{
+  width: 100%;
+  background-color: #3498db;
+  border: 4px solid #fbfbfb;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  padding: 22px 0;
+}
+.button1:hover{
+  color: #3498db;
+  background-color: #fff;
+}
+.content-container{
+  width: auto;
+  margin: 0 auto;
+}
+.flex-container {
+  display: flex;
+}
+.flex-container .item {
+  width: 80%;
+  padding: 90px 0;
+}
+.item h2 {
+  font-size: 25px;
+  display: center;
+}
+.log-box a:link {
+  color: black;
+  text-decoration: none;
+}
+.box-area a:link {
+  color: rgb(58, 173, 173);
+  text-decoration: none;
+}
+
+.log-box a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.log-box a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.log-box a:active {
+  color: blue;
+  text-decoration: none;
+}
+.log-box{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 70px;
+}
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+
+a:visited {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+a:active {
+  color: blue;
+  text-decoration: none;
+}
+
+.button-log a:active{
+  color: blue;
+}
+
+.button-log a:link{
+  color: #fff;
+  text-decoration: underline;
+}
+
+.button-log a:hover{
+  color: blue;
+}
+
+.button-log a:visited{
+  color: #fff;
+  text-decoration: underline;
+}

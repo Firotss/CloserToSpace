@@ -11,7 +11,7 @@ $entries = array();
             }
             foreach($entries as $entry){
                 $title = $entry->title;
-                $query = "SELECT COUNT(1) FROM images WHERE title=$title";
+                $query = "SELECT COUNT(1) FROM images WHERE title='$title'";
                 $all_search = $db->query($query);
                 $all_search = $all_search->fetch_array();
                     if($all_search[0] == 0)

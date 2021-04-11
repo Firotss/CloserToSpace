@@ -13,10 +13,11 @@ body{
     background-image:url(../images/background.jpg);
 }
 
+/* весь контейнер поддерживает перспективу */
 .flip-container {
  perspective: 1000;
 }
-
+ /* переверните сторону при проведении мышью */
  .flip-container:hover .flipper, .flip-container.hover .flipper {
  transform: rotateY(180deg);
  }
@@ -26,12 +27,14 @@ body{
  height: 480px;
 }
  
+/* здесь находится скорость перевертывания */
 .flipper {
  transition: 0.6s;
  transform-style: preserve-3d;
  position: relative;
 }
  
+/* скройте обратную сторону во время переворота */
 .front, .back {
  backface-visibility: hidden;
  
@@ -40,10 +43,12 @@ body{
  left: -10px;
 }
  
+/* лицевая сторона размещена над обратной */
 .front {
  z-index: 2;
 }
  
+/* обратная, изначально скрытая сторона */
 .back {
  transform: rotateY(180deg);
 }
@@ -122,6 +127,7 @@ body{
 	display: flex;
 	flex-wrap: wrap;
 }
+/*... */
 
 .menu{
 	float: right;
@@ -154,7 +160,7 @@ body{
 
 h1
 {
-	position: absolute; 
+	position: absolute; /* or absolute */
     top:15%;
     left: 50%;
   color: rgb(7, 6, 6);
@@ -233,8 +239,8 @@ h1
 .single-box.back
 {
   
-  background: rgba(43, 97, 198, 0.5); 
-  opacity: 1; 
+  background: rgba(43, 97, 198, 0.5); /* Цвет фона */
+  opacity: 1; /* Значение прозрачности */
   color: #fff;
 }
 
@@ -247,31 +253,21 @@ h1
   border-right: 2px solid rgba(43, 97, 198, 1);
   vertical-align: middle;
 }
-.first,.second{
-  display: flex;
-}
-
-.first {
-padding: 10px 0;
-background: rgba(43, 97, 198, 1);
-color: #fff;
-font-size: 0.9em;
-text-align: center;
-font-weight: bold;
-margin-right: 50px;
-}
-
 .table {
   border-spacing: 0 10px;
   font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
   justify-content: space-between;
   display: flex;
   flex-direction: column;
 }
-.table div{
-  flex: 1;
- }
-
+.about-section {
+  padding: 1px;
+  text-align: center;
+  background-color: #eea663;
+  color: white;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
 img {
   width: 150%;
   height: 100%;
@@ -348,6 +344,8 @@ footer{
   vertical-align: top;
 }
 
+/* Footer left */
+
 .footer-distributed .footer-left{
   width: 30%;
 }
@@ -357,6 +355,8 @@ footer{
   margin: 0;
 }
 
+/* The company logo */
+
 .footer-distributed .footer-left img{
   width: 30%;
 }
@@ -364,6 +364,8 @@ footer{
 .footer-distributed h3 span{
   color:  #e0ac1c;
 }
+
+/* Footer links */
 
 .footer-distributed .footer-links{
   margin: 20px 0 12px;
@@ -382,6 +384,8 @@ footer{
   font-weight: normal;
   margin: 0;
 }
+
+/* Footer Center */
 
 .footer-distributed .footer-center{
   width: 35%;
@@ -424,6 +428,9 @@ footer{
   color:  #558bff;
   text-decoration: none;;
 }
+
+
+/* Footer Right */
 
 .footer-distributed .footer-right{
   width: 30%;
@@ -470,7 +477,20 @@ footer{
 }
 
 }
-
+.loginbox{
+  width: auto;
+  user-select: none;
+  background: rgba(43, 97, 198, 0.5);
+  flex: 0 0 200px;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 20px;
+}
+.loginbox h2{
+    text-align: center;
+    line-height: 50px;
+    
+}
 .button-log{
     text-align: center;
 }
@@ -502,21 +522,7 @@ footer{
   top: -50px;
   left: calc(50% - 50px);
 }
-.loginbox{
-  width: auto;
-  user-select: none;
-  background: rgba(43, 97, 198, 0.5);
-  flex: 0 0 200px;
-  color: #fff;
-  padding: 20px 30px;
-  border-radius: 20px;
-  margin-top: 100px;
-}
-.loginbox h2{
-    text-align: center;
-    line-height: 50px;
-    
-}
+
 .loginbox p{
   margin: 0;
   padding: 0;
@@ -534,6 +540,7 @@ footer{
   width: 300px;
   color: #fff;
   font-size: 16px;   
+  
 }
 .loginbox input::placeholder{
   color: rgba(255, 255, 255, 0.24);
@@ -548,6 +555,30 @@ footer{
   font-size: 18px;
 }
 
+.messagebox p{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.messagebox input{
+  width: 100%;
+  margin-bottom: 20px;
+  
+}
+
+
+.messagebox input[type="submit"]:hover
+{
+  cursor: pointer;
+  background: black;
+  color: white;
+}
+.messagebox a{
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: darkgray;
+}
 .loginbox input[type="submit"]:hover
 {
   cursor: pointer;
@@ -560,38 +591,45 @@ footer{
   line-height: 20px;
   color: darkgray;
 }
-.messagebox p{
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-}
-.messagebox input{
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.messagebox input[type="submit"]:hover
-{
-  cursor: pointer;
-  background: black;
-  color: white;
-}
-
 .second{
   margin-top: -2px;
   color: white;
   background: rgba(43, 97, 198, 0.1);
 }
+.table {
+  
+  border-spacing: 0 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+
+.table div{
+ flex: 1;
+}
 
 .button{
-  background-color: white;
+  background-color: #f0f0f0;
   border: 1px solid black;
-  padding: 93px 4px; 
+  padding: 5px 20px; 
   color: black;
 }
 .button:hover{
-  background-color: red;
+  background-color: #3498db;
   color:  #f0f0f0;
+}
+.first,.second{
+  display: flex;
+}
+
+.first {
+padding: 10px 0;
+background: rgba(43, 97, 198, 1);
+color: #fff;
+font-size: 0.9em;
+text-align: center;
 }
 
 .cell-img {
@@ -620,7 +658,21 @@ footer{
   padding: 35px;
   border-radius: 7px;
 }	
-
+.button1{
+  width: 100%;
+  background-color: #3498db;
+  border: 4px solid #fbfbfb;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  padding: 22px 0;
+}
+.button1:hover{
+  color: #3498db;
+  background-color: #fff;
+}
 .content-container{
   width: auto;
   margin: 0 auto;
@@ -659,18 +711,6 @@ footer{
   color: blue;
   text-decoration: none;
 }
-.profile_menu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-    background: rgba(43, 97, 198, 0.5);
-    text-align: center;
-    color: #fff;
-    padding: 20px 30px;
-    border-radius: 20px;
-    margin-top: 100px;
-}
 .log-box{
   width: 100%;
   display: flex;
@@ -678,7 +718,6 @@ footer{
   align-items: center;
   margin-bottom: 70px;
 }
-
 a:link {
   color: blue;
   text-decoration: none;

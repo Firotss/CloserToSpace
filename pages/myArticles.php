@@ -25,13 +25,10 @@ if ($if[0] > 0){ ?>
             Picture
             </div>
             <div class="cell-2">
-            Name
+            Name/Description
             </div>
-            <div class="cell-4">
-            Description
-            </div>
-            <div class="cell-6">
-            Actions
+            <div class="cell-3">
+            Likes
             </div>
         </div>
     </div>
@@ -41,9 +38,10 @@ if ($if[0] > 0){ ?>
             <div class="table">
             <div class="second">
                 <div class="cell-img" data-title="Picture" style="background-image: url('data:image/jpeg;base64, <?=$show_img ?>');"></div>
-                <div class="cell" data-title="Name"><?php echo($row['title']);?></div>
-                <div class="cell-di" data-title="Description"><?php echo($row['description']);?></div>
-                <div class="cell" data-title="Delete/Show"><a  href="?&delete=&id=<?php echo($row['id']);?>"><input class="button" type="submit" value="Delete"></a></div>
+                <div class="cell" data-title="Name"><h3><?php echo($row['title']);?></h3><p><p>&nbsp;</p> <?php echo($row['description']);?></p></div>
+                <div class="cell" data-title="Likes"><?php echo($row['likes']);?></div>
+                <a href="?&delete=&id=<?php echo($row['id']);?>"><input class="button" type="submit" value="Delete"></a>
             </div>
+            
 <?php } } } else{header("Location: addArticle");} ?></div></body>
     

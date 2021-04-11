@@ -5,11 +5,9 @@ error_reporting(E_ALL);
 function validateRegister($userData) {
     if($userData["username"] == "" || $userData["password"] == "" || $userData["email"] == "") {
         return false;
-    } 
-    if($userData["password"] != $userData["confirmPassword"]) {
+    } if($userData["password"] != $userData["confirmPassword"]) {
         return false;
-    } return true; 
-}
+    } return true; }
 
 function userExistsByUsername($username) {
     global $db;
@@ -18,8 +16,7 @@ function userExistsByUsername($username) {
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
-    return ($result->num_rows > 0); 
-}
+    return ($result->num_rows > 0); }
 
 function userExistsByEmail($email) {
     global $db;
@@ -28,8 +25,7 @@ function userExistsByEmail($email) {
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();   
-    return ($result->num_rows > 0); 
-}
+    return ($result->num_rows > 0); }
 
 function addUser($userData) {
     global $db;
@@ -43,11 +39,10 @@ function addUser($userData) {
         $userData["username"], 
         $encryptedPassword,
         $userData["email"],
-        $time,
-        $userKey
+        $userKey,
+        $time
     );
-    return $stmt->execute(); 
-}
+    return $stmt->execute(); }
 
 function getUserByUsername($username) {
     global $db;
@@ -60,8 +55,7 @@ function getUserByUsername($username) {
         return $result->fetch_assoc();
     } else {
         return NULL;
-    } 
-}
+    } }
 
 function getUserByKey($userKey) {
     global $db;
@@ -74,29 +68,13 @@ function getUserByKey($userKey) {
         return $result->fetch_assoc();
     } else {
         return NULL;
-    } 
-}
+    } }
 
 function setUserKey($user_id, $key) {
     global $db;
     $sql = "UPDATE users SET userKey = ? WHERE id = ?";
     $stmt = $db->prepare($sql);
     $stmt->bind_param("si", $key, $user_id);
-    return $stmt->execute(); 
-}
+    return $stmt->execute(); }
 
-function getUserIdByShareKey($shareKey) {
-    global $db;
-    $sql = "SELECT id FROM users WHERE shareKey = ?";
-    $stmt = $db->prepare($sql);
-    $stmt->bind_param("s", $shareKey);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if($result->num_rows > 0) {
-        $userinfo = $result->fetch_assoc();
-        return $userinfo["id"];
-    } else {
-        return NULL;
-    } 
-} 
 ?>

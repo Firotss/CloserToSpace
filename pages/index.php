@@ -25,18 +25,18 @@ include "../layout/header.php";
             {
                 ?>
                 <div class="find_menu"> 
-                    <h2 style="color: white">SORRY LINK, I CANT GIVE U CREDIT, RETURN WHEN YOU ARE LITTLE MM... RICHER!</h2>
+                        <h2>Sorry, we couldn't find anything in the site related to your search!</h2>
                 </div> 
                  <?php
-                $query = "SELECT * FROM images ORDER BY likes DESC LIMIT 550";
+                $query = "SELECT * FROM images ORDER BY likes DESC LIMIT 50";
             }
             else{
-            $query = "SELECT * FROM images WHERE ".implode(" AND ", $sql)." ORDER BY likes DESC LIMIT 550";  
+            $query = "SELECT * FROM images WHERE ".implode(" AND ", $sql)." ORDER BY likes DESC LIMIT 50";  
             }
         }
         else
         {
-            $query = "SELECT * FROM images ORDER BY likes DESC LIMIT 505";
+            $query = "SELECT * FROM images ORDER BY likes DESC LIMIT 50";
         }
         $a = $db->query($query); 
         ?>

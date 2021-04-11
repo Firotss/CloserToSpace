@@ -11,38 +11,41 @@ if (isset($_POST["action"])) {
             if (password_verify($userData["password"], $databaseUser["password"])) {
                 $userKey = md5(uniqid());
                 setUserKey($databaseUser["id"], $userKey);
+   
                 setcookie("user_key", $userKey, time() + (86400*30), "/");
+
                 header("Location: ../pages/myProfile.php");
             } else {
-                echo "Wrong password!";
-            }
-        }
-    } else if($_POST["action"] == "register") {
-        $userData = array(
-            "username" => $_POST["username"],
-            "email" => $_POST["email"],
-            "password" => $_POST["password"],
-            "confirmPassword" => $_POST["confirmPassword"]
-        );
-        if(validateRegister($userData)) {
-            if(!userExistsByUsername($userData["username"])) {
-                if(addUser($userData)) {
-                    $databaseUser = getUserByUsername($userData["username"]);
-                    $userKey = md5(uniqid());
-                    setUserKey($databaseUser["id"], $userKey);
+                echo $databaseUser['password'];
+                echo $userData['password'];
+            } }
+        } else if($_POST["action"] == "register") {
+            $userData = array(
+                "username" => $_POST["username"],
+                "email" => $_POST["email"],
+                "password" => $_POST["password"],
+                "confirmPassword" => $_POST["confirmPassword"]
+            );
+            
+            if(validateRegister($userData)) {
+                if(!userExistsByUsername($userData["username"])) {
+                    if(addUser($userData)) {
+                        $databaseUser = getUserByUsername($userData["username"]);
+                        $userKey = md5(uniqid());
+                        setUserKey($databaseUser["id"], $userKey);
+       
+                        setcookie("user_key", $userKey, time() + (86400*30), "/");
     
-                    setcookie("user_key", $userKey, time() + (86400*30), "/");
-
-                    header("Location: ../pages/myProfile.php");
+                        header("Location: ../pages/myProfile.php");
+                    } else {
+                        echo "There was problem with adding the user to the database.";
+                    }
+    
                 } else {
-                    echo "There was problem with adding the user to the database.";
+                    echo "The username is already taken.";
                 }
-            } else {
-                echo "The username is already taken.";
             }
         }
-    }
 } else {
     die("Invalid request.");
 }
-?>
